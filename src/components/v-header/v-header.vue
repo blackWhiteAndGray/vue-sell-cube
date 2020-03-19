@@ -99,7 +99,7 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import "~common/stylus/index.styl"
+  @import "~common/stylus/mixin.styl"
 
   .header
     position relative
@@ -219,10 +219,9 @@
       height 100%
       overflow auto
       background rgba(7, 17, 27, 0.8)
-      transition: all 0.5s
-      -webkit-backdrop-filter blur(10px)
-      &.fade-transition
-        opacity 1
+      backdrop-filter blur(10px)
+      &.fade-enter-active, &.fade-leave-active
+        transition opacity .5s
         background rgba(7, 17, 27, 0.8)
       &.fade-enter, &.fade-leave-to
         opacity 0

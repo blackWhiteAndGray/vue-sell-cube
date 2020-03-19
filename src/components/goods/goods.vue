@@ -5,7 +5,7 @@
       <ul>
         <li v-for="(item,index) in goods"
             :key="index"
-            class="menu-item border-top-1px"
+            class="menu-item border-1px"
             :class="{'current': currentIndex === index}"
             @click="selectMenu(index)">
           <span class="text">
@@ -45,8 +45,9 @@
                         v-show="food.oldPrice">￥{{ food.oldPrice }}</span>
                 </div>
                 <div class="cartcontrol-wrapper">
-                  <cartcontrol @add="onAdd"
-                               :food="food"></cartcontrol>
+                  <cart-control
+                    @add="onAdd"
+                    :food="food"></cart-control>
                 </div>
               </div>
             </li>
@@ -54,18 +55,18 @@
         </li>
       </ul>
     </div>
-    <shopcart ref="shopCart"
+    <shop-cart ref="shopCart"
               :select-foods="selectFoods"
               :delivery-price="seller.deliveryPrice"
-              :min-price="seller.minPrice"></shopcart>
+              :min-price="seller.minPrice"></shop-cart>
   </div>
 </template>
 
 <script>
 import { getGoods } from 'api'
 import BScroll from 'better-scroll'
-import shopcart from 'components/shopcart/shopcart'
-import cartcontrol from 'components/cartcontrol/cartcontrol'
+import ShopCart from '../../components/shop-cart/shop-cart'
+import CartControl from 'components/cart-control/cart-control'
 
 export default {
   props: {
@@ -150,8 +151,8 @@ export default {
     }
   },
   components: {
-    shopcart,
-    cartcontrol
+    ShopCart,
+    CartControl
   }
 }
 </script>
@@ -224,7 +225,7 @@ export default {
         display: table-cell;
         width: 56px;
         vertical-align: middle;
-        border-top-1px(rgba(7, 17, 27, 0.1));
+        border-1px(rgba(7, 17, 27, 0.1))
         font-size: 12px;
       }
     }

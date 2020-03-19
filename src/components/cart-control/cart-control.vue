@@ -20,6 +20,7 @@ import Vue from 'vue'
 const EVENT_ADD = 'add'
 
 export default {
+  name: 'cart-control',
   props: {
     food: {
       type: Object
