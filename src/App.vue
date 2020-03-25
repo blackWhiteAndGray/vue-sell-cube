@@ -45,7 +45,6 @@
           id: this.seller.id
         }).then((seller) => {
           this.seller = Object.assign({}, this.seller, seller)
-          console.log(this.seller.id)
         })
       }
     },
