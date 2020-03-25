@@ -44,7 +44,7 @@
           </div>
           <div class="list-content" ref="listContent">
             <ul>
-              <li class="food" v-for="(food, index) in selectFoods" :key="index">
+              <li class="food border-bottom-1px" v-for="(food, index) in selectFoods" :key="index">
                 <span class="name">{{ food.name }}</span>
                 <div class="price">
                   <span>￥{{ food.price * food.count }}</span>
@@ -225,7 +225,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  @import "common/stylus/mixin.styl"
+  @import "../../common/stylus/mixin.styl"
 
   .shopcart
     position fixed
@@ -363,7 +363,8 @@
           position: relative
           padding: 12px 0
           box-sizing border-box
-          border-1px(rgba(7, 17, 27, 0.1))
+          &:last-child
+            border-none()
           .name
             line-height: 24px
             font-size: 14px

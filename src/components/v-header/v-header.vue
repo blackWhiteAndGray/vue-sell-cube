@@ -99,7 +99,7 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import "~common/stylus/mixin.styl"
+  @import "../../common/stylus/mixin.styl"
 
   .header
     position relative
@@ -221,7 +221,7 @@
       background rgba(7, 17, 27, 0.8)
       backdrop-filter blur(10px)
       &.fade-enter-active, &.fade-leave-active
-        transition opacity .5s
+        transition opacity .3s
         background rgba(7, 17, 27, 0.8)
       &.fade-enter, &.fade-leave-to
         opacity 0

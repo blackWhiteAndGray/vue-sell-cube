@@ -13,19 +13,27 @@
         <router-link to="/seller">商家</router-link>
       </div>
     </div>
-    <router-view :seller="seller"></router-view>
+    <keep-alive>
+      <router-view :seller="seller"></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
   import VHeader from 'components/v-header/v-header'
   import { getSeller } from 'api'
+  import { urlParse } from './common/js/util'
 
   export default {
     name: 'App',
     data() {
       return {
-        seller: {}
+        seller: {
+          id: (() => {
+            const queryParm = urlParse()
+            return queryParm.id
+          })()
+        }
       }
     },
     created() {
@@ -33,8 +41,11 @@
     },
     methods: {
       _getSeller() {
-        getSeller().then((seller) => {
-          this.seller = seller
+        getSeller({
+          id: this.seller.id
+        }).then((seller) => {
+          this.seller = Object.assign({}, this.seller, seller)
+          console.log(this.seller.id)
         })
       }
     },
